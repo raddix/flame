@@ -6,9 +6,7 @@ const checkType = require('./checkType');
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+const PORT = process.env.PORT || 3000;
 
 
 app.get('/', function (req, res) {
@@ -30,8 +28,6 @@ app.post('/', function (req, res) {
     res.render('index2',resultJSON);
 })
 
-app.listen(server_port, server_ip_address, function () {
-
-    console.log( "Listening on " + server_ip_address + ", server_port " + server_port  );
-
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
