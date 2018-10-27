@@ -13,6 +13,7 @@ app.get('/', function (req, res) {
     res.render('index');
 })
 
+//Added comment
 app.post('/', function (req, res) {
     let firstName = req.body.firstName.replace(/ /g,'');
     let secondName = req.body.secondName.replace(/ /g,'');
